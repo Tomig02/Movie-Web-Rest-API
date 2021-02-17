@@ -1,0 +1,16 @@
+{
+  "name": "social-media-rest-api",
+  "version": "1.0.0",
+  "description": "REST API for Social media project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "tomas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.16",
+    "nodemon": "^2.0.7"
+  }
+}
