@@ -4,22 +4,13 @@ const User = require("../schema/User")
 const Register = Express();
 
 
-
 Register.post("/register", (req, res) => {
-    console.log(req.body);
-    const ReqUser = new User({
-        username: req.body.username,
-        password:  req.body.password,
-        name:  req.body.name,
-        surname:  req.body.surname,
-        age:  req.body.age,
-        gender:  req.body.gender
-    });
+    const ReqUser = new User(req.body);
     try{
         ReqUser.save()
     }
-    catch(error){
-        res.json({ message: error})
+    catch(err){
+        res.json({ message: err.message})
     }    
 })
 
