@@ -7,13 +7,12 @@ const Register = Express();
 Register.post("/register", async (req, res) => {
     const ReqUser = new User(req.body);
     try{
-        let user = await User.findOne({username: "" + req.body.username}, {__v: false});
-        user = await User.findOne({email: "" + req.body.email}, {__v: false})
+        const user = await User.findOne({username: "" + req.body.username}, {__v: false});
         if(user){
-            res.json(message = "User already exists", isReg = false);
+            res.json({result: "User already exists", isReg: false});
         }
         else{
-            res.json(message = "User created succesfully", isReg = true);
+            res.json({result: "User created succesfully", isReg: true});
             ReqUser.save()
         }
     }
