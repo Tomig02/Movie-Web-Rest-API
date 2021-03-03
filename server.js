@@ -1,10 +1,11 @@
 const Express = require("express");
 const Mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv/config");
+const bodyParser = require("body-parser");
 
-// conect to mongodb atlas
-Mongoose.connect(process.env.DATABASE_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+Mongoose.connect("mongodb+srv://Tomig02:132ckinfkincho@social.pveot.mongodb.net/userdata?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true }, () => {
+    console.log("DB Connected")
+});
 const server = Express();
 
 //MIDDLEMAN
@@ -23,4 +24,6 @@ db.on("open", () => {
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT);
+server.listen(PORT, () => {
+    console.log("listening port: " + PORT );
+});
