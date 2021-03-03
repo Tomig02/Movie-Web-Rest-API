@@ -1,5 +1,4 @@
 const Express = require("express");
-const Mongoose = require("mongoose");
 const User = require("../schema/User")
 
 const LogIn = Express();
