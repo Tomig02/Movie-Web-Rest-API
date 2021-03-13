@@ -4,14 +4,17 @@
   "description": "REST API for Social media project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "server": "nodemon server.js"
   },
   "author": "tomas",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.16",
+    "mongoose": "^5.11.16"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.7"
   }
 }

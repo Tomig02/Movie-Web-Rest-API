@@ -14,8 +14,4 @@ Register.post("/register", (req, res) => {
     }    
 })
 
-// LogIn.get("/login", (res, req) => {
-//     res.send()
-// });
-
 module.exports = Register; 

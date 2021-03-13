@@ -1,9 +1,9 @@
 const Express = require("express");
 const Mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+require("dotenv").config();
 
-Mongoose.connect("mongodb+srv://Tomig02:132ckinfkincho@social.pveot.mongodb.net/userdata?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true }, () => {
+Mongoose.connect(process.env.MONGO_AUTH, { useUnifiedTopology: true, useNewUrlParser: true }, () => {
     console.log("DB Connected")
 });
 const server = Express();
@@ -17,13 +17,14 @@ const db = Mongoose.connection;
 db.on("error", (error) => console.log(error));
 
 
-db.on("open", () => {
-    
-    server.use("/", require("./routes/LogIn"));
-    server.use("/", require("./routes/Register"));
+db.once("open", () => {
+    console.log("db connected")    
 });
 
-const PORT = process.env.PORT || 3000;
+server.use("/", require("./routes/LogIn"));
+server.use("/", require("./routes/Register"));
+
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
     console.log("listening port: " + PORT );
 });
